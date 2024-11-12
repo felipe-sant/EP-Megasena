@@ -1,4 +1,5 @@
 import dezenasMaisSorteadas from "../exercicios/dezenasMaisSorteadas";
+import maioresPremiosPagos from "../exercicios/maioresPremiosPagos";
 import totalDePremioPagos from "../exercicios/totalDePremioPagos";
 import limparTerminal from "../utils/limparTerminal";
 import Menu from "./_Menu";
@@ -29,7 +30,7 @@ class MenuPrincipal extends Menu {
                 this.entrada.aguardarEnter()
                 break;
             case 3:
-                console.log("Opcao 3")
+                maioresPremiosPagos()
                 this.entrada.aguardarEnter()
                 break;
             case 4:

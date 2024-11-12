@@ -16,9 +16,14 @@ function totalDePremioPagos() {
     const premios: PremioPago[] = []
     dados.getCSV().forEach((sorteio: Megasena) => {
         verificarAnoExiste(premios, sorteio.data.getFullYear()) || premios.push(new PremioPago(sorteio.data.getFullYear()))
-        premios.forEach(premio => premio.ano === sorteio.data.getFullYear() ? premio.adicionarPremio(sorteio.premio, sorteio.ganhadores) : null)
+        premios.forEach(premio => {
+            if (premio.ano === sorteio.data.getFullYear()) {
+                premio.adicionarPremio(sorteio.premio)
+                premio.adicionarGanhadores(sorteio.ganhadores)
+            }
+        })
     })
-    premios.sort((a, b) => a.ano - b.ano)
+    premios.sort((a, b) => a.ano! - b.ano!)
     premios.forEach(premio => console.log(`Ano: ${premio.ano} - Ganhadores: ${premio.ganhadores} - Total de prêmios pagos: R$ ${premio.premio}`))
 }
 
