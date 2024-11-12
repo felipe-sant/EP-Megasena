@@ -1,3 +1,4 @@
+import anoComMaiorApostas from "../exercicios/anoComMaiorApostas";
 import dezenasMaisSorteadas from "../exercicios/dezenasMaisSorteadas";
 import maioresPremiosPagos from "../exercicios/maioresPremiosPagos";
 import totalDePremioPagos from "../exercicios/totalDePremioPagos";
@@ -34,7 +35,7 @@ class MenuPrincipal extends Menu {
                 this.entrada.aguardarEnter()
                 break;
             case 4:
-                console.log("Opcao 4")
+                anoComMaiorApostas()
                 this.entrada.aguardarEnter()
                 break;
             case 0:
