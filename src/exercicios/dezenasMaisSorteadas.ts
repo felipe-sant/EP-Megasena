@@ -6,7 +6,7 @@ function verificarNumeroExiste(dezenasMaisSorteadas: MaisSorteado[], numero: num
     let numeroExiste = false
     dezenasMaisSorteadas.forEach((dezena) => {
         if (dezena.number === numero) {
-            dezena.count++
+            dezena.incrementar()
             numeroExiste = true
         }
     })
@@ -16,13 +16,12 @@ function verificarNumeroExiste(dezenasMaisSorteadas: MaisSorteado[], numero: num
 function dezenasMaisSorteadas() {
     const dezenasMaisSorteadas: MaisSorteado[] = []
 
-    dados.getCSV().forEach((sorteio: Megasena) => {
-        verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a1) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a1))
-        verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a2) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a2))
-        verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a3) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a3))
-        verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a4) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a4))
-        verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a5) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a5))
-    })
+    dados.getCSV().forEach((sorteio: Megasena) => verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a1) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a1)))
+    dados.getCSV().forEach((sorteio: Megasena) => verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a2) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a2)))
+    dados.getCSV().forEach((sorteio: Megasena) => verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a3) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a3)))
+    dados.getCSV().forEach((sorteio: Megasena) => verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a4) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a4)))
+    dados.getCSV().forEach((sorteio: Megasena) => verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a5) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a5)))
+    dados.getCSV().forEach((sorteio: Megasena) => verificarNumeroExiste(dezenasMaisSorteadas, sorteio.a6) || dezenasMaisSorteadas.push(new MaisSorteado(sorteio.a6)))
 
     dezenasMaisSorteadas.sort((a, b) => b.count - a.count)
 
